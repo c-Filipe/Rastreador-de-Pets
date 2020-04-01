@@ -39,10 +39,11 @@
 					<div class="form-group ">
 						<label for="id" > Digite o id do rastreador:</label><br>
 						<input type="text" name="id" id="id" placeholder="Digite o id do seu rastreador" size="28" maxlength="5" ><br><br>
-					</div>		
+					</div>
+					<hr/>	
+					<input class="btn btn-primary btn-lg" type="submit" value="Cadastrar" />	
 				</form>	
-				<hr/>
-				<input class="btn btn-primary btn-lg" type="submit" value="Cadastrar" />
+				<br/>
 				<button class="btn btn-danger" onclick="cancelar()"> Cancelar </button>
 	
 			</span>	

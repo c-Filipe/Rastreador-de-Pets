@@ -43,7 +43,7 @@
 				<div class="container d-flex justify-content-center">
 					<span class="border" style="text-align:center; margin:10% auto;padding:60px; background:#ADD8E6; box-shadow:2px 3px 4px #B0C4DE;">
 
-						<form method="POST" action="histo_loc.php">
+						<form method="POST" action="lista_historico.php">
 							<div class="form-group ">
 
 								<label for="pet" > <h4>Selecione o pet que deseja exibir a localização:</h4></label><br><br/>
@@ -62,17 +62,12 @@
 	 								?>                                             
 	    							<option  value="<?php echo $sql['IdPet'];?>" ><?php echo $sql['NomePet'];?></option> 
 									 <?php      
-									    }
-									  }
+									    } // fim foreach
+									  } // fim if
 									?>
                                 </select>
-                                <hr/>
-                                <div class="row justify-content-center" >
-									<div class="col">
-                                    <label for="data" > <h4>Selecione a data da consulta</h4></label><br/>
-										<input type="date" name="data" id="data" />
-									</div>
-								</div>				
+                              
+                                	
 							</div>
 							<br/>
 							<hr/>
@@ -91,7 +86,7 @@
 				</div>
 			</section>
 			</div>
-			<footer>
+	<footer>
 		<hr />
 		<div class="container d-flex justify-content-center">
 			 Copyright &copy; 2020 - by Filipe Andrade	

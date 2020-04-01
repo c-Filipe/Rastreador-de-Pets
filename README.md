@@ -21,8 +21,8 @@ FaroPet
     do período (Data), e ainda a seleção do pet </li><br/>
     <li>  O resultado desse processamento, deverá retornar uma página HTML com os seguintes
     elementos: </li><br/>
-    <ol type='a'>
-    <li >  Um mapa que apresente uma linha (Polyline) representando o trajeto do PET </li>
+    <ol>
+    <li >  Um mapa que apresente uma linha (Polyline) representando o trajeto do PET. </li>
     </ol>
     
 </ul>

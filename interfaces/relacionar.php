@@ -80,8 +80,8 @@
 	 								?>                                             
 	    							<option  value="<?php echo $sql['IdRastreador'];?>" ><?php echo $sql['IdCadastro'];?></option> 
 									 <?php      
-									    }
-									  }
+									    } //fim foreach
+									  } // fim if
 									?>
 									
 								</div>			
@@ -120,10 +120,6 @@
 					 Instagram  
 				</a>
 		</footer>
-
-			
-			
-
 
 			<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 			<script type="text/javascript" src="../js/bootstrap.bundle.min.js"></script>

@@ -22,7 +22,7 @@
 
 <html>
 <head>
-    <title>Localização</title>
+    <title>Localização Atual</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/estilo_personalizado.css">

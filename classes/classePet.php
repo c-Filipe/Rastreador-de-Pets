@@ -109,24 +109,27 @@
 			
 			session_start();
  
+			
+  			  
+  			
+
   			// Inserindo dados ao banco
-			if (empty($nome)) {
-				echo "<script> alert('Preencha o campo nome para proesseguir') </script>";
-				echo "<script> history.back() </script>";
-			}
-			else{
-				$sql = $this->pdo->prepare("INSERT INTO pet SET NomePet = :nome , TipoPet = :tipo , DataNasc = :data, SexoPet = :sexo, IdUsuario = :id " );
-				$sql->bindValue(':nome', $this->getNomePet());
-				$sql->bindValue(':tipo', $this->getTipoPet());
-				$sql->bindValue(':data', $this->getDataNasc());
-				$sql->bindValue(':sexo', $this->getSexoPet());
-				$sql->bindValue(':id', $_SESSION['id']);
-				$sql->execute();
 
-				echo " <div class='alert alert-success' role='alert'> Pet cadastrado com sucesso </div>";
 
-				echo "<meta http-equiv='refresh' content='2;URL= ../interfaces/index.php'>";
-			}	
+			$sql = $this->pdo->prepare("INSERT INTO pet SET NomePet = :nome , TipoPet = :tipo , DataNasc = :data, SexoPet = :sexo, IdUsuario = :id " );
+			$sql->bindValue(':nome', $this->getNomePet());
+			$sql->bindValue(':tipo', $this->getTipoPet());
+			$sql->bindValue(':data', $this->getDataNasc());
+			$sql->bindValue(':sexo', $this->getSexoPet());
+			$sql->bindValue(':id', $_SESSION['id']);
+			$sql->execute();
+
+			echo " <div class='alert alert-success' role='alert'> Pet cadastrado com sucesso </div>";
+
+			echo "<meta http-equiv='refresh' content='2;URL= ../interfaces/index.php'>";
+
+
+
 
 		}
 
@@ -166,7 +169,7 @@
 				
 
 				echo " <div class='alert alert-success' role='alert'> O pet selecionado, agora está vinculado ao rastreador escolhido. </div>";
-					echo "<meta http-equiv='refresh' content='2;URL= ../interfaces/gerenciador.php'>";
+					echo "<meta http-equiv='refresh' content='2;URL= ../interfaces/index.php'>";
 
 			}
 

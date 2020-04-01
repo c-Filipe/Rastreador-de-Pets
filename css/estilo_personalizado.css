@@ -85,3 +85,32 @@ h4{
 div#myMap{
 	margin-top: 18px;
 }
+
+table{
+	background-color: #a7cef8;
+	box-shadow: 5px 5px 5px rgba(5, 20, 228, 0.5);
+}
+
+th{
+	text-align: center;
+	color: rgb(45, 45, 211);
+	font-size: 25px;
+	background-color: #80b3eb;
+}
+tr{
+	text-align: center;
+	font-size: 20px;
+	color: darkblue;
+}
+.link{
+	text-decoration: underline;
+	font-size: 25px;
+	color: navy;
+
+}
+.titulo-tab{
+	text-align: center;
+	font-family: 'Baloo Bhai', cursive;
+	color: navy;
+
+}

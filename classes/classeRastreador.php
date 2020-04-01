@@ -84,14 +84,18 @@ class rastreador {
 						 
 						
 
-						  			// Inserindo dados ao banco
+						// Inserindo dados ao banco
 
 
 						$sql = $this->pdo->prepare("INSERT INTO rastreador SET IdCadastro = ? , DataAtivacao = ? , IdUsuario = ?");
 						  		$sql->execute(array($this->getIdCadastro(),$this->getdataAtivacao(),$_SESSION['id']));
 
+						// INSERINDO O IdRastreador NA TABELA localizacao
+
 						 $sql = $this->pdo->prepare("INSERT INTO localizacao  (IdRastreador) VALUES  (LAST_INSERT_ID())");
-						 $sql->execute(); 
+						 $sql->execute();
+						 
+						
 						 
 						echo " <div class='alert alert-success' role='alert'> Cadastrado com sucesso </div>";
 						echo "<meta http-equiv='refresh' content='2;URL= ../interfaces/index.php'>";

@@ -185,11 +185,11 @@
 						</div>				
 					</form>
 				</section>	
-								<div class="row justify-content-center" >
-									<div class="col-1">
-										<button class="btn btn-danger" onclick="cancelar()"> Cancelar </button>
-									</div>		
-								</div>			
+				<div class="row justify-content-center" >
+					<div class="col-1">
+						<button class="btn btn-danger" onclick="cancelar()"> Cancelar </button>
+					</div>		
+				</div>			
 			</div>				
 	
 	

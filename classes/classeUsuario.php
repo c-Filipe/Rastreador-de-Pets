@@ -138,30 +138,32 @@
 	public function cadastrar(){
 
 		
-		$nome = addslashes($_POST['nome']);
-		$sobrenome = addslashes($_POST['sobrenome']);
-		$email = addslashes($_POST['email']);
-		$senha = md5(addslashes($_POST['senha']));
-		$estado = addslashes($_POST['estado']);
-		$cidade = addslashes($_POST['cidade']);
-		$bairro = addslashes($_POST['bairro']);
-		$rua = addslashes($_POST['rua']);
-		$cep = addslashes($_POST['cep']);
-		$numero = addslashes($_POST['numero']);
-		$complemento = addslashes($_POST['complemento']);
+		$this->setNome(addslashes($_POST['nome'])); 
+		$this->setSobrenome(addslashes($_POST['sobrenome'])) ;
+		$this->setEmail(addslashes($_POST['email']));
+		$this->setSenha(addslashes($_POST['senha']));
+		$this->setEstado(addslashes($_POST['estado']));
+		$this->setCidade(addslashes($_POST['cidade'])); 
+		$this->setBairro(addslashes($_POST['bairro']));
+		$this->setRua(addslashes($_POST['rua']));
+		$this->setCep(addslashes($_POST['cep']));
+		$this->setNumero(addslashes($_POST['numero']));
+		$this->setComplemento(addslashes($_POST['complemento']));
+
+
 
 		
 			// verificando se todos os dados obrigatorios foram preenchidos
-		if (empty($nome)) {
+		if (empty($this->getNome())) {
 		 	echo "<script> alert('Preencha o campo nome para se cadastrar') </script>";
 		 	echo "<script> history.back() </script>";
 
 		}
-		elseif (empty($email)) {
+		elseif (empty($this->getEmail())) {
 		 	echo "<script>alert('Preencha o campo email para se cadastrar')</script>";
 		 	echo "<script> history.back() </script>";
 		}
-		elseif (empty($senha)) {
+		elseif (empty($this->getSenha())) {
 		 	echo "<script>alert('Preencha o campo senha para se cadastrar')</script>";
 		 	echo "<script> history.back() </script>";
 		}
@@ -178,7 +180,7 @@
 				//	Verificando se email ja está cadastrado
 
 			 	$sql= $this->pdo->prepare("SELECT * FROM usuario WHERE  Email = :email ");
-			 	$sql->bindValue(':email',$email);
+			 	$sql->bindValue(':email',$this->getEmail());
 			 	$sql->execute();
 
 			 	if ($sql->rowCount() > 0) {
@@ -190,10 +192,12 @@
 			 	// Inserindo dados se tudo estiver correto
 			 	else{
 			 			
-			 		$sql = $this->pdo->prepare("INSERT INTO usuario SET Nome = ?, Sobrenome = ?, Email= ?, Senha = ? , Estado = ?, Cidade= ?, Bairro= ? , Rua= ?, CEP= ? , Numero = ? ,Complemento = ? " );
-
-			 		$sql->execute(array($nome, $sobrenome, $email, md5($senha), $estado, $cidade, $bairro, $rua, $cep, $numero, $complemento));
-
+			 		$sql = $this->pdo->prepare("INSERT INTO usuario SET Nome = ?, Sobrenome = ?, Email= ?, Senha = ? ,
+					  Estado = ?, Cidade= ?, Bairro= ? , Rua= ?, CEP= ? , Numero = ? ,Complemento = ? " );
+					 $sql->execute(array($this->getNome(), $this->getSobrenome(), $this->getEmail(), md5($this->getSenha()),
+					 $this->getEstado(), $this->getCidade(), $this->getBairro(), $this->getRua(),$this->getCep()
+					 , $this->getNumero(), $this->getComplemento()));
+					
 			 		echo " <div class='alert alert-success' role='alert'> Cadastrado com sucesso </div>";
 					echo "<meta http-equiv='refresh' content='2;URL=../instancias/login.php'>";
 
@@ -209,15 +213,15 @@
 	public function login(){
 
 		if (isset($_POST['email']) && empty($_POST['email']) == false and isset($_POST['senha']) && empty($_POST['senha']) == false ) {
-			$email = addslashes($_POST['email']);
-			$senha = md5(addslashes($_POST['senha']));	
+			$this->setEmail(addslashes($_POST['email']));
+			$this->setSenha(md5(addslashes($_POST['senha'])));	
 			
 			//verificando  banco de dados
 
 				$sql = $this->pdo->prepare("SELECT * FROM usuario WHERE Email = :email 
 				AND Senha = :senha "); 
-				$sql->bindValue(':email',$email);
-				$sql->bindValue(':senha', md5($senha));
+				$sql->bindValue(':email', $this->getEmail());
+				$sql->bindValue(':senha',md5($this->getSenha()));
 				$sql->execute();
 
 
@@ -251,24 +255,24 @@
 
 	public function alterarCadastro(){
 
-		$nome = addslashes($_POST['nome']);
-		$sobrenome = addslashes($_POST['sobrenome']);
-		$email = addslashes($_POST['email']);
-		$estado = addslashes($_POST['estado']);
-		$cidade = addslashes($_POST['cidade']);
-		$bairro = addslashes($_POST['bairro']);
-		$rua = addslashes($_POST['rua']);
-		$cep = addslashes($_POST['cep']);
-		$numero = addslashes($_POST['numero']);
-		$complemento = addslashes($_POST['complemento']);
+		$this->setNome(addslashes($_POST['nome'])); 
+		$this->setSobrenome(addslashes($_POST['sobrenome'])) ;
+		$this->setEmail(addslashes($_POST['email']));
+		$this->setEstado(addslashes($_POST['estado']));
+		$this->setCidade(addslashes($_POST['cidade'])); 
+		$this->setBairro(addslashes($_POST['bairro']));
+		$this->setRua(addslashes($_POST['rua']));
+		$this->setCep(addslashes($_POST['cep']));
+		$this->setNumero(addslashes($_POST['numero']));
+		$this->setComplemento(addslashes($_POST['complemento']));
 				
 	// verificando se todos os dados obrigatorios foram preenchidos
-		if (empty($nome)) {
+		if (empty($this->getNome())) {
 		 	echo "<script> alert('Preencha o campo nome para proesseguir') </script>";
 		 	echo "<script> history.back() </script>";
 
 		}
-		elseif (empty($email)) {
+		elseif (empty($this->getEmail())) {
 		 	echo "<script>alert('Preencha o campo email para prosseguir')</script>";
 		 	echo "<script> history.back() </script>";
 		}
@@ -280,7 +284,7 @@
 				$id =$_SESSION['id']; // Validando a variavel global para inserir na query
 				
 			 	$sql= $pdo->prepare("SELECT Email FROM usuario WHERE  Email = :email AND IdUsuario != $id  ");
-			 	$sql->bindValue(':email',$email);
+			 	$sql->bindValue(':email',$this->getEmail());
 			 	$sql->execute();
 
 			 	if ($sql->rowCount() > 0) {
@@ -294,7 +298,9 @@
 					$id =$_SESSION['id']; // Validando a variavel global para inserir na query
 
 					$sql= $pdo->prepare("UPDATE usuario SET Nome = ? , Sobrenome = ? , Email = ?, Estado= ?, Cidade = ?,Bairro = ?,Rua = ?, CEP = ?, Numero = ? , Complemento = ? WHERE IdUsuario = $id ");
-					$sql->execute(array($nome, $sobrenome, $email, $estado, $cidade, $bairro, $rua, $cep, $numero, $complemento,));
+					$sql->execute(array($this->getNome(), $this->getSobrenome(), $this->getEmail(),
+					$this->getEstado(), $this->getCidade(), $this->getBairro(), $this->getRua(),$this->getCep()
+					, $this->getNumero(), $this->getComplemento()));
 
 					echo " <div class='alert alert-success' role='alert'> Alteração realizada com sucesso </div>";
 						echo "<meta http-equiv='refresh' content='1 ;URL= ../interfaces/index.php'>";
