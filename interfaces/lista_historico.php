@@ -68,13 +68,11 @@
                              foreach ($sql as $sql) {
 
                                     $id = $sql['idHistorico'];
-                                    $data = $sql['DataHistorico']; 
-                                    
-                                    
+                                    $data = $sql['DataHistorico'];                     
                     ?>
                     <tbody>
                         <tr>
-                            <th scope="row">1</th>   
+                           
                             <td> <?php echo date('d/m/Y', strtotime($data));;?></td>
                             <td> <?php echo $sql['Hora'];?></td <>
                             <td> <?php echo $sql['latitude_inicial'];?></td>
