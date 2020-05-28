@@ -10,5 +10,8 @@ class UsuariosController extends Controller {
    public function login(){
        $this->render('/login');
    }
+   public function cadastrar(){
+    $this->render('/cadastro');
+}
 }
 

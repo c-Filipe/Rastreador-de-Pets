@@ -15,7 +15,7 @@
 				<div class="row">
 				
 					<div class="col-sm-6 logo ">
-					 	<img src="../public/assets/imagens/logo.png" class="img-fluid" />
+					 	<img src="<?=$base?>/assets/imagens/logo.png" class="img-fluid" />
 					</div>
 					
 				

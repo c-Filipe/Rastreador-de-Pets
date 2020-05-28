@@ -5,7 +5,7 @@
     <section>
         <div class="container d-flex justify-content-center">
             <div class="row">
-                <div class="col patas"><img src="../public/assets/imagens/pegada.png" class="img-fluid patas" /></div>			
+                <div class="col patas"><img src="<?=$base?>/assets/imagens/pegada.png" class="img-fluid patas" /></div>			
                     <span class="border" style="text-align:center; margin:10% auto;padding:60px; background:#ADD8E6; box-shadow:2px 3px 4px #ADD8E6; ">
                         <div class="col">
                             <form method="POST" action="../instancias/login.php">
@@ -20,12 +20,12 @@
                                     <input class="btn btn-primary btn-lg" type="submit" value="ENTRAR" />
                                 </div>
                             </form>
-                            <a href="cadastro.html">
+                            <a href="<?=$base?>/cadastro">
                                 <input class="btn btn-secondary" type="submit" value="CADASTRE-SE" />
                             </a>		
                         </div>	
                 </span>									
-                <div class="col patas"><img src="../public/assets/imagens/pegada.png" class="img-fluid patas" /></div>
+                <div class="col patas"><img src="<?=$base?>/assets/imagens/pegada.png" class="img-fluid patas" /></div>
             </div>	
         </div>
     </section>
