@@ -1,7 +1,10 @@
 <?=$render('/header');?>
+    <?php if(!empty($flash)): ?>
+        <div class="alert alert-danger" role="alert"> <?=$flash?> </div>
+    <?php endif; ?>
     <div class="container alterar">
         <section>
-            <form method="POST" action="../instancias/cadastro.php">
+            <form method="POST" action="<?=$base?>/cadastro">
                 <div class="form-group">
                     <div class="row justify-content-center" >
                         <div class="col-4">
@@ -88,7 +91,7 @@
                             <label for="rua"> Rua </label>
                             <input id="rua" type="text" name="rua" class="form-control"   placeholder="Digite sua rua" />
                         </div>
-                        <div class="col">
+                        <div clss="col">
                             <label for="cep"> CEP </label>
                             <input id="cep" type="number" name="cep" class="form-control"  placeholder="Digite seu cep" />
                         </div>
@@ -135,7 +138,7 @@
             var ok =confirm("ATENÇÃO! Os seus dados não serão salvos");
             if (ok==true)
             {
-            x=window.location.href = "login.html";
+            x=window.location.href = "<?=$base?>/login";
             }
             else
             {
